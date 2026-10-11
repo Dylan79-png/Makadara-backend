@@ -1,0 +1,5 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accountant</title></head><body style="font-family:Arial;padding:20px"><h1>Accountant - Till 416930</h1><p id="me">Loading...</p><button onclick="localStorage.clear();location.href='/login.html'">Logout</button><script>
+const t=localStorage.getItem('token');
+if(!t) location.href='/login.html';
+fetch('/api/me',{headers:{Authorization:'Bearer '+t}}).then(r=>{if(!r.ok) throw 0;return r.json()}).then(d=>document.getElementById('me').textContent='Logged in as: '+d.email+' ('+d.role+')').catch(()=>location.href='/login.html')
+</script></body></html>
