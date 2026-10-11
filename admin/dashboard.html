@@ -1,15 +1,69 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Owner Dashboard — Makadara</title><link rel="stylesheet" href="css/admin.css"></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Makadara | Owner Dashboard</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
 <body>
-<div class="topbar"><b>🏥 MAKADARA <span style="opacity:.7;font-weight:400">| Owner Dashboard</span></b><button onclick="logout()" style="background:#fff;color:#0a2a7a;border:none;padding:7px 14px;border-radius:8px;cursor:pointer;font-weight:700">Logout</button></div>
-<div class="container">
-<div style="background:linear-gradient(135deg,#0a2a7a,#0f3d9e,#00b4d8);color:#fff;padding:26px;border-radius:20px;margin-bottom:20px"><h2 style="margin:0;font-size:22px">Welcome back, Owner 👋</h2><p style="opacity:.85;margin:8px 0 0">Full control — payments, staff & reports. Accountant view included.</p></div>
-<div class="cards">
-<div class="card"><span>Today's Revenue</span><b id="totalToday">KES 0</b><small id="countToday">0 payments today</small></div>
-<div class="card"><span>Paybill</span><b id="paybillToday">KES 0</b><small>Online</small></div>
-<div class="card"><span>Till</span><b id="tillToday">KES 0</b><small>Till • Sandbox</small></div>
-<div class="card"><span>Month Total</span><b id="totalMonth">KES 0</b><small id="totalAll">All time</small></div>
+<header class="topbar-owner">
+  <div class="logo">🏥 <b>MAKADARA</b><span>OWNER DASHBOARD</span></div>
+  <button onclick="logout()">Logout</button>
+</header>
+
+<div class="hero-owner">
+  <h2>Welcome back, Owner</h2>
+  <p>Here's what's happening at Makadara Hospital today — an overview of today's performance and payments.</p>
 </div>
-<a href="accountant.html" class="btn" style="display:block;text-align:center;text-decoration:none;max-width:320px">Open Accountant View →</a>
-<h3 style="margin-top:24px">Recent Payments</h3>
-<table><thead><tr><th>Date</th><th>Receipt</th><th>Phone</th><th>Method</th><th>Amount</th></tr></thead><tbody id="rows"><tr><td colspan="5">Loading...</td></tr></tbody></table>
-</div><script src="js/admin.js"></script></body></html>
+
+<div class="stats-grid">
+  <div class="stat-card border-green">
+    <span>Today's Revenue <i>↗</i></span>
+    <b id="todayRev">KES 12,500</b>
+  </div>
+  <div class="stat-card border-blue">
+    <span>Paybill <i>🧾</i></span>
+    <b id="paybill">KES 7,000</b>
+  </div>
+  <div class="stat-card border-orange">
+    <span>Till <i>🎁</i></span>
+    <b id="till">KES 4,500</b>
+  </div>
+  <div class="stat-card border-purple">
+    <span>Month Total <i>📊</i></span>
+    <b id="monthTotal">KES 84,000</b>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head"><h3>Recent Payments</h3><a href="accountant.html">View all →</a></div>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Date</th><th>Receipt</th><th>Phone</th><th>Method</th><th>Amount</th></tr></thead>
+    <tbody id="paymentsBody">
+      <tr><td>2024-06-10</td><td>RCPT-1023</td><td>+254712345678</td><td><span class="pill paybill">Paybill</span></td><td>KES 2,000</td></tr>
+      <tr><td>2024-06-10</td><td>RCPT-1022</td><td>+254733112233</td><td><span class="pill till">Till</span></td><td>KES 1,500</td></tr>
+      <tr><td>2024-06-09</td><td>RCPT-1021</td><td>+254799887766</td><td><span class="pill paybill">Paybill</span></td><td>KES 3,500</td></tr>
+      <tr><td>2024-06-09</td><td>RCPT-1020</td><td>+254712009988</td><td><span class="pill cash">Cash</span></td><td>KES 1,200</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+if(!checkAuth()){}
+async function load(){
+  const data = await apiFetch('/api/sales');
+  if(!data) return;
+  // Map real data if API returns it
+  if(data.today) document.getElementById('todayRev').innerText = formatKES(data.today);
+  if(data.paybill) document.getElementById('paybill').innerText = formatKES(data.paybill);
+  if(data.till) document.getElementById('till').innerText = formatKES(data.till);
+  if(data.month) document.getElementById('monthTotal').innerText = formatKES(data.month);
+}
+load();
+</script>
+</body>
+</html>

@@ -1,82 +1,60 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* ========== MAKADARA - COMBINED CSS FOR LOGIN + OWNER + ACCOUNTANT ========== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; background: #f5f7fa; color: #222; }
+input, select, button { font-family: inherit; }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f0f4f8;
-  color: #333;
-}
+/* ---------- 1. LOGIN PAGE ---------- */
+.login-page { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #0d6efd, #0a58ca); padding: 16px; }
+.login-card { background: white; padding: 30px 22px; border-radius: 16px; width: 100%; max-width: 380px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+.login-icon { font-size: 42px; }
+.login-card h2 { font-size: 19px; color: #0d6efd; margin: 12px 0 5px; line-height: 1.2; }
+.login-card p { font-size: 13px; color: #666; margin-bottom: 14px; }
+.badge-red { background: #ffdddd; color: #c00; padding: 5px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; display: inline-block; margin-bottom: 16px; }
+.login-card input { width: 100%; padding: 12px; margin: 6px 0; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; background: #f8f9fa; }
+.btn-login { width: 100%; background: #0d6efd; color: white; padding: 12px; border: none; border-radius: 8px; font-size: 15px; margin-top: 10px; cursor: pointer; }
+#err { color: red; font-size: 12px; margin-top: 8px; }
 
-.login-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0d6efd, #0a58ca);
-}
+/* ---------- 2. OWNER DASHBOARD ---------- */
+.topbar-owner { background: linear-gradient(90deg,#007bff,#0e9bd8); color: white; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; }
+.topbar-owner .logo { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: bold; }
+.topbar-owner .logo span { font-size: 9px; display: block; font-weight: 400; letter-spacing: 1px; }
+.topbar-owner button { background: transparent; border: 1px solid rgba(255,255,255,.8); color: white; padding: 5px 12px; border-radius: 20px; cursor: pointer; }
+.hero-owner { background: linear-gradient(90deg,#0d6efd,#2196f3); color: white; margin: 10px; padding: 20px; border-radius: 14px; }
+.hero-owner h2 { font-size: 22px; margin-bottom: 6px; }
+.hero-owner p { font-size: 12px; opacity: .9; line-height: 1.4; }
 
-.login-card {
-  background: white;
-  padding: 30px 25px;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 380px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
+/* ---------- 3. ACCOUNTANT ---------- */
+.topbar-acct { background: #0b2c6b; color: white; padding: 14px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+.topbar-acct button { background: none; border: none; color: white; font-size: 12px; cursor: pointer; }
+.acct-head { display: flex; justify-content: space-between; align-items: flex-start; padding: 14px; gap: 10px; flex-wrap: wrap; }
+.acct-head h1 { font-size: 24px; color: #0b2c6b; }
+.acct-head p { font-size: 11px; color: #666; }
+.acct-actions { display: flex; gap: 8px; align-items: center; }
+.btn-export { background: #eef2ff; border: 1px solid #ddd; padding: 6px 10px; border-radius: 20px; font-size: 12px; }
+.live { background: #e6f4ea; color: #1a7f37; font-size: 11px; font-weight: bold; padding: 4px 8px; border-radius: 20px; }
 
-.login-card h2 {
-  font-size: 18px;
-  margin: 10px 0 5px 0;
-  color: #0d6efd;
-}
+/* ---------- SHARED: STATS + TABLES (Owner & Accountant) ---------- */
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 10px; margin-bottom: 14px; }
+@media(min-width:768px){ .stats-grid{ grid-template-columns: repeat(4,1fr); } }
+.stat-card { background: white; padding: 14px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.08); display: flex; flex-direction: column; gap: 4px; }
+.stat-card span { font-size: 12px; color: #555; display: flex; justify-content: space-between; }
+.stat-card b { font-size: 17px; color: #111; }
+.stat-card small { font-size: 11px; color: #777; }
+.border-green{ border-left: 4px solid #22c55e; } .border-blue{ border-left: 4px solid #3b82f6; } .border-orange{ border-left: 4px solid #f59e0b; } .border-purple{ border-left: 4px solid #8b5cf6; }
+.section { background: white; margin: 0 10px 14px; padding: 14px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+.section-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.section-head a { font-size: 12px; color: #0d6efd; text-decoration: none; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; white-space: nowrap; }
+th { text-align: left; padding: 8px; color: #555; border-bottom: 1px solid #eee; font-size: 11px; }
+td { padding: 8px; border-bottom: 1px solid #f0f0f0; }
+.pill { padding: 3px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+.pill.paybill{ background: #dbeafe; color: #1d4ed8; } .pill.till{ background: #fef3c7; color: #b45309; } .pill.cash{ background: #e5e7eb; color: #374151; } .pill.paid{ background: #dcfce7; color: #15803d; }
 
-.login-card p {
-  font-size: 13px;
-  color: #666;
-  margin-bottom: 15px;
-}
-
-.login-card input {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-.btn {
-  background: #0d6efd;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-size: 15px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.btn:hover {
-  background: #0b5ed7;
-}
-
-.topbar {
-  background: #0d6efd;
-  color: white;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  margin: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
+/* ACCOUNTANT 2-COL */
+.two-col { display: grid; grid-template-columns: 1fr; gap: 14px; padding: 0 0 20px; }
+@media(min-width:768px){ .two-col{ grid-template-columns: 2fr 1fr; padding: 0 10px; } }
+.manual input, .manual select { width: 100%; padding: 9px; border: 1px solid #ddd; border-radius: 8px; margin: 4px 0 10px; }
+.manual label { font-size: 11px; font-weight: bold; }
+.btn-green { width: 100%; background: #16a34a; color: white; border: none; padding: 11px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.muted { font-size: 11px; color: #888; margin-top: 8px; }
