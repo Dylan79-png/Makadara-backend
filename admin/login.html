@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Staff Login - Makadara</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="login-page">
+
+  <div class="login-card">
+    <div style="font-size: 40px;">🏥</div>
+    <h2>MAKADARA HEALTHCARE CENTRE</h2>
+    <p>Staff & Owner Portal - Athi River</p>
+
+    <span style="background: #ffdddd; color: #c00; padding: 4px 8px; border-radius: 10px; font-size: 11px;">
+      🔒 AUTHORIZED STAFF ONLY
+    </span>
+
+    <form id="loginForm" style="margin-top: 20px;">
+      <input id="email" placeholder="Staff Email" required>
+      <input id="password" type="password" placeholder="Password" required>
+      <button class="btn" style="width: 100%;">Login to Dashboard</button>
+      <p id="err" style="color: red; font-size: 12px;"></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        document.getElementById('err').innerText = data.error;
+        return;
+      }
+
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('role', data.role);
+
+      if (data.role === 'accountant') {
+        location.href = 'accountant.html';
+      } else {
+        location.href = 'dashboard.html';
+      }
+    });
+  </script>
+
+</body>
+</html>
