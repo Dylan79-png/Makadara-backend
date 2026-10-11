@@ -1,5 +1,16 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accountant</title></head><body style="font-family:Arial;padding:20px"><h1>Accountant - Till 416930</h1><p id="me">Loading...</p><button onclick="localStorage.clear();location.href='/login.html'">Logout</button><script>
-const t=localStorage.getItem('token');
-if(!t) location.href='/login.html';
-fetch('/api/me',{headers:{Authorization:'Bearer '+t}}).then(r=>{if(!r.ok) throw 0;return r.json()}).then(d=>document.getElementById('me').textContent='Logged in as: '+d.email+' ('+d.role+')').catch(()=>location.href='/login.html')
-</script></body></html>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accountant — Makadara</title><link rel="stylesheet" href="css/admin.css"></head>
+<body>
+<div class="topbar"><b>🏥 MAKADARA <span style="opacity:.7;font-weight:400">| Accountant</span></b><div><span id="userLabel" style="font-size:13px;opacity:.9;margin-right:10px"></span><button onclick="logout()" style="background:#fff;color:#0a2a7a;border:none;padding:7px 14px;border-radius:8px;cursor:pointer;font-weight:700">Logout</button></div></div>
+<div class="container">
+<h2 style="margin:0">Daily Payments 💰</h2><p style="color:#64748b;margin:6px 0 0">Live — M-Pesa Till updates automatically</p>
+<div class="toolbar"><input type="date" id="datePicker"><button class="btn" onclick="loadData()">Show</button><button class="btn" style="background:#22c55e" onclick="exportCSV()">⬇ Export Excel</button><span id="liveDot" style="margin-left:auto;font-size:12px;color:#22c55e;font-weight:700">● LIVE</span></div>
+<div class="cards">
+<div class="card"><span>Total Today</span><b id="totalToday">KES 0</b><small id="countToday">0 transactions</small></div>
+<div class="card"><span>Paybill</span><b id="paybillToday">KES 0</b><small>Paybill payments</small></div>
+<div class="card"><span>Till</span><b id="tillToday">KES 0</b><small>Till 416930 • Sandbox</small></div>
+<div class="card"><span>This Month</span><b id="totalMonth">KES 0</b><small id="totalAll">All time: KES 0</small></div>
+</div>
+<h3>Recent Payments</h3>
+<table><thead><tr><th>Date</th><th>Receipt</th><th>Patient</th><th>Phone</th><th>Method</th><th>Amount</th><th>Status</th></tr></thead><tbody id="rows"><tr><td colspan="7">Loading...</td></tr></tbody></table>
+<div class="section"><h3 style="margin-top:0">+ Add Cash / SHA Manually</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><input id="pName" placeholder="Patient Name"><input id="pAmount" type="number" placeholder="Amount KES"><input id="pPhone" placeholder="Phone / SHA Number"><select id="pMethod"><option>Cash</option><option>SHA</option><option>Paybill</option><option>Till</option></select></div><button class="btn" style="margin-top:12px" onclick="addManual()">Save Payment</button></div>
+</div><script src="js/admin.js"></script></body></html>

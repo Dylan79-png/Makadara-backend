@@ -1,5 +1,15 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Owner Dashboard</title></head><body style="font-family:Arial;padding:20px"><h1>Owner Dashboard - Till 416930</h1><p id="me">Loading...</p><button onclick="localStorage.clear();location.href='/login.html'">Logout</button><script>
-const t=localStorage.getItem('token');
-if(!t) location.href='/login.html';
-fetch('/api/me',{headers:{Authorization:'Bearer '+t}}).then(r=>{if(!r.ok) throw 0;return r.json()}).then(d=>document.getElementById('me').textContent='Logged in as: '+d.email+' ('+d.role+')').catch(()=>location.href='/login.html')
-</script></body></html>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Owner Dashboard — Makadara</title><link rel="stylesheet" href="css/admin.css"></head>
+<body>
+<div class="topbar"><b>🏥 MAKADARA <span style="opacity:.7;font-weight:400">| Owner Dashboard</span></b><button onclick="logout()" style="background:#fff;color:#0a2a7a;border:none;padding:7px 14px;border-radius:8px;cursor:pointer;font-weight:700">Logout</button></div>
+<div class="container">
+<div style="background:linear-gradient(135deg,#0a2a7a,#0f3d9e,#00b4d8);color:#fff;padding:26px;border-radius:20px;margin-bottom:20px"><h2 style="margin:0;font-size:22px">Welcome back, Owner 👋</h2><p style="opacity:.85;margin:8px 0 0">Full control — payments, staff & reports. Accountant view included.</p></div>
+<div class="cards">
+<div class="card"><span>Today's Revenue</span><b id="totalToday">KES 0</b><small id="countToday">0 payments today</small></div>
+<div class="card"><span>Paybill</span><b id="paybillToday">KES 0</b><small>Online</small></div>
+<div class="card"><span>Till</span><b id="tillToday">KES 0</b><small>Till • Sandbox</small></div>
+<div class="card"><span>Month Total</span><b id="totalMonth">KES 0</b><small id="totalAll">All time</small></div>
+</div>
+<a href="accountant.html" class="btn" style="display:block;text-align:center;text-decoration:none;max-width:320px">Open Accountant View →</a>
+<h3 style="margin-top:24px">Recent Payments</h3>
+<table><thead><tr><th>Date</th><th>Receipt</th><th>Phone</th><th>Method</th><th>Amount</th></tr></thead><tbody id="rows"><tr><td colspan="5">Loading...</td></tr></tbody></table>
+</div><script src="js/admin.js"></script></body></html>
