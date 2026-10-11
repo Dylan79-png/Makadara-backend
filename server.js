@@ -12,6 +12,7 @@ const DB = {
   read: (f) => { try { return JSON.parse(fs.readFileSync('data/' + f)) } catch (e) { return [] } },
   write: (f, d) => fs.writeFileSync('data/' + f, JSON.stringify(d, null, 2))
 };
+if (!fs.existsSync('data')) fs.mkdirSync('data', {recursive:true});
 if (!fs.existsSync('data/users.json')) DB.write('users.json', [
   { email: 'owner@makadara.co.ke', pass: 'ChangeMe123!', role: 'owner' },
   { email: 'accounts@makadara.co.ke', pass: 'Accounts2026!', role: 'accountant' }
@@ -63,4 +64,4 @@ app.post('/mpesa/callback', (req, res) => {
 });
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'admin/login.html')));
-app.listen(3000, () => console.log('Makadara LIVE on http://localhost:3000 - Till 416930 Auto ON'));
+app.listen(process.env.PORT || 3000, () => console.log('ready'));
