@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Pharmacy - Makadara Healthcare Centre</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo"><div class="logo-icon">+</div><div><b>MAKADARA<br>HEALTHCARE CENTRE</b></div></div>
+    <nav>
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
+      <a href="doctors.html">Doctors</a><a href="pharmacy.html" class="active">Pharmacy</a><a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn">Book Appointment</a>
+  </header>
+
+  <div class="page-hero"><h1>Online Pharmacy</h1><p>Order medicine online — delivery to Athi River & Machakos</p></div>
+
+  <div class="section pharmacy-layout">
+    <div class="pharmacy-main">
+      <div class="search-bar">
+        <input id="searchInput" placeholder="🔍 Search for products..." oninput="searchProducts()">
+        <select id="categoryFilter" onchange="searchProducts()">
+          <option value="">All Categories</option>
+          <option>Pain Relief</option>
+          <option>Antibiotics</option>
+          <option>Vitamins</option>
+          <option>Protective Gear</option>
+        </select>
+      </div>
+      <div id="productGrid" class="grid"></div>
+    </div>
+
+    <div class="cart-box">
+      <h3>🛒 Shopping Cart</h3>
+      <div id="cartItems">Cart is empty</div>
+      <hr>
+      <p>Subtotal: <span id="subtotal">KSh 0</span></p>
+      <p>Delivery Fee: <span id="deliveryFee">KSh 0</span></p>
+      <h4>Total: <span id="cartTotal">KSh 0</span></h4>
+      
+      <label>Delivery Option:</label>
+      <select id="deliveryOption" onchange="updateCart()">
+        <option value="0">Pickup - Free</option>
+        <option value="150">Delivery - KSh 150</option>
+        <option value="300">Express - KSh 300</option>
+      </select>
+
+      <input id="cartPhone" placeholder="Phone for M-Pesa - e.g. 0700123456">
+      <button class="btn" style="width:100%" onclick="checkoutCart()">Checkout via M-Pesa</button>
+      <p class="sha-badge">✅ SHA Verified Pharmacy</p>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

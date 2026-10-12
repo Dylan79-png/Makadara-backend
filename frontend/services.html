@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Makadara Healthcare Centre</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo"><div class="logo-icon">+</div><div><b>MAKADARA<br>HEALTHCARE CENTRE</b><span>LEVEL 3A HOSPITAL</span></div></div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">☰</button>
+    <nav id="navMenu">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" class="active">Services</a><a href="doctors.html">Doctors</a><a href="pharmacy.html">Pharmacy</a><a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn nav-btn">Book Appointment</a>
+    </nav>
+    <a href="contact.html" class="btn desktop-btn">Book Appointment</a>
+  </header>
+  <div class="page-hero"><h1>Our Services</h1><p>Comprehensive care for you and your family</p></div>
+  <div class="section">
+    <div class="grid">
+      <div class="card"><i>🤰</i><h3>Maternity & Obstetrics</h3><p>Safe delivery, antenatal and postnatal care.</p><span class="price">KSh 3,500</span><button class="btn-sm" onclick="bookService('Maternity')">Book Now</button></div>
+      <div class="card"><i>👶</i><h3>Pediatrics</h3><p>Child health, immunization and wellness.</p><span class="price">KSh 1,500</span><button class="btn-sm" onclick="bookService('Pediatrics')">Book Now</button></div>
+      <div class="card"><i>🩺</i><h3>Surgery</h3><p>General and specialist surgeries.</p><span class="price">From KSh 10,000</span><button class="btn-sm" onclick="bookService('Surgery')">Book Now</button></div>
+      <div class="card"><i>📷</i><h3>Radiology & Imaging</h3><p>X-Ray, Ultrasound and diagnostics.</p><span class="price">KSh 1,200</span><button class="btn-sm" onclick="bookService('Radiology')">Book Now</button></div>
+      <div class="card"><i>🔬</i><h3>Laboratory</h3><p>Blood tests, malaria, HIV and more.</p><span class="price">KSh 500</span><button class="btn-sm" onclick="bookService('Laboratory')">Book Now</button></div>
+      <div class="card"><i>💊</i><h3>Pharmacy</h3><p>24-hour pharmacy, delivery available.</p><span class="price">See Pharmacy</span><button class="btn-sm" onclick="location.href='pharmacy.html'">Shop Now</button></div>
+      <div class="card"><i>🚨</i><h3>Emergency Care</h3><p>24/7 emergency unit, 15 min response.</p><span class="price">24/7 Open</span><button class="btn-sm" onclick="location.href='tel:0700123456'">Call Now</button></div>
+      <div class="card"><i>🦷</i><h3>Dental Care</h3><p>Cleaning, extraction, and dental health.</p><span class="price">KSh 2,000</span><button class="btn-sm" onclick="bookService('Dental')">Book Now</button></div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

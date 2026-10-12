@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctors - Makadara Healthcare Centre</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo"><div class="logo-icon">+</div><div><b>MAKADARA<br>HEALTHCARE CENTRE</b></div></div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">☰</button>
+    <nav id="navMenu">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="doctors.html" class="active">Doctors</a><a href="pharmacy.html">Pharmacy</a><a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn nav-btn">Book Appointment</a>
+    </nav>
+    <a href="contact.html" class="btn desktop-btn">Book Appointment</a>
+  </header>
+  <div class="page-hero"><h1>Meet Our Specialist Doctors</h1><p>Experienced consultants dedicated to compassionate care</p></div>
+  <div class="section">
+    <div class="doctors">
+      <div class="doc"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop" alt="Dr James Mwangi"><h3>Dr. James Mwangi</h3><span>General Physician</span><p>Expert in general surgery and emergency care. 10+ years experience.</p><button class="btn-sm" onclick="bookDoctor('Dr. James Mwangi')">View Profile</button></div>
+      <div class="doc"><img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=800&auto=format&fit=crop" alt="Dr Aisha Kamau"><h3>Dr. Aisha Kamau</h3><span>Obstetrics & Gynecology</span><p>Specialist in women's health, safe delivery and antenatal care.</p><button class="btn-sm" onclick="bookDoctor('Dr. Aisha Kamau')">View Profile</button></div>
+      <div class="doc"><img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop" alt="Dr Brian Otieno"><h3>Dr. Brian Otieno</h3><span>Pediatrics</span><p>Internal medicine specialist for children and infants.</p><button class="btn-sm" onclick="bookDoctor('Dr. Brian Otieno')">View Profile</button></div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

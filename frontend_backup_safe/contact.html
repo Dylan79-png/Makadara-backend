@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Makadara Healthcare Centre</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo"><div class="logo-icon">+</div><div><b>MAKADARA<br>HEALTHCARE CENTRE</b></div></div>
+    <nav>
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
+      <a href="doctors.html">Doctors</a><a href="pharmacy.html">Pharmacy</a><a href="contact.html" class="active">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn">Book Appointment</a>
+  </header>
+
+  <div class="page-hero"><h1>Find Us & Book Appointment</h1><p>We're here for you — 24/7 Emergency</p></div>
+
+  <div class="section contact-layout">
+    <div class="map-box">
+      <h3>📍 Find Us - Athi River</h3>
+      <iframe src="https://www.google.com/maps?q=Athi+River+Kenya&output=embed" width="100%" height="300" style="border:0; border-radius:12px;"></iframe>
+      <p><b>Location:</b> Devil's Road, Athi River, Machakos County<br>
+      <b>Phone:</b> 0700 123 456<br>
+      <b>Email:</b> info@makadarahealth.co.ke<br>
+      <b>Hours:</b> Emergency 24/7 | Outpatient Mon-Sat 8AM-6PM</p>
+      <a href="https://wa.me/254700123456" target="_blank" class="btn" style="background:#25D366">💬 Chat on WhatsApp</a>
+    </div>
+
+    <div class="form-box">
+      <h3>Book Your Appointment</h3>
+      <input id="bkName" placeholder="Full Name *">
+      <input id="bkPhone" placeholder="Phone Number *">
+      <input id="bkSha" placeholder="SHA Number (Optional)">
+      <select id="bkService">
+        <option>General Consultation</option><option>Maternity</option><option>Pediatrics</option>
+        <option>Surgery</option><option>Radiology</option><option>Laboratory</option><option>Dental</option>
+      </select>
+      <input id="bkDate" type="date">
+      <input id="bkTime" type="time">
+      <button class="btn" style="width:100%" onclick="submitBooking()">Book & Pay via M-Pesa</button>
+      <p class="note">You will receive STK Push on your phone. Payment adds automatically to the hospital system.</p>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
