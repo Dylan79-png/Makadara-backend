@@ -5,37 +5,73 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Staff Login - Makadara</title>
 <style>
-body{margin:0;height:100vh;background:#0d1117;display:flex;align-items:center;justify-content:center;font-family:sans-serif;overflow:hidden}
-.water-bg{position:absolute;inset:0;background:radial-gradient(circle at center,#1a2a22, #0d1117)}
-.login-card{position:relative;z-index:2;background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);padding:40px;border-radius:16px;width:300px;color:#fff;box-shadow:0 20px 50px rgba(0,0,0,0.5);transition:0.5s;opacity:0.2}
-body.on .login-card{opacity:1;box-shadow:0 0 50px rgba(0,255,136,0.3)}
-.lamp{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:3;text-align:center;cursor:pointer}
-.lamp-top{width:120px;height:80px;background:#333;border-radius:0 0 60px 60px;margin:0 auto;box-shadow:0 0 0px #00ff88;transition:0.3s}
-body.on .lamp-top{box-shadow:0 20px 60px #00ff88;background:#00ff88}
-.cord{width:2px;height:120px;background:#aaa;margin:0 auto;cursor:grab}
-.light{width:20px;height:20px;background:#fff;border-radius:50%;margin:-10px auto;opacity:0;transition:0.3s}
-body.on .light{opacity:1}
-input{width:90%;padding:12px;margin:10px 0;border:none;border-radius:8px;background:#161b22;color:#fff;outline:none}
-button{width:95%;padding:12px;margin-top:10px;background:linear-gradient(45deg,#00aa88,#00ff88);border:none;color:#fff;border-radius:8px;font-weight:bold;cursor:pointer}
-button:hover{transform:scale(1.05)}
+.lamp{
+  width:80px;
+  height:80px;
+  background:#ffd369;
+  border-radius:50%;
+  margin:0 auto 20px;
+  box-shadow:0 0 30px #ffd369;
+  animation:glow 2s infinite;
+}
+
+@keyframes glow{
+  0%,100%{box-shadow:0 0 20px #ffd369;}
+  50%{box-shadow:0 0 50px #ffc107;}
+}
+
+.login-container{
+  text-align:center;
+  padding:40px;
+  background:#0d1117;
+  border-radius:15px;
+  width:320px;
+  margin:80px auto;
+  color:#fff;
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+input{
+  width:90%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:8px;
+  background:#161b22;
+  color:#fff;
+  outline:none;
+}
+
+button{
+  width:95%;
+  padding:12px;
+  background:linear-gradient(45deg,#00aaff,#007bff);
+  border:none;
+  color:#fff;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #00aaff;
+}
 </style>
 </head>
-<body class="" id="body">
-<div class="water-bg"></div>
-<div class="lamp" onclick="document.getElementById('body').classList.toggle('on')">
-  <div class="lamp-top"></div>
-  <div class="cord"></div>
-  <div class="light"></div>
-  <div style="color:#888;margin-top:5px;font-size:12px">Pull me</div>
-</div>
-
-<div class="login-card">
-  <h2>Welcome Back.</h2>
-  <p style="font-size:12px;color:#aaa">Pull the cord to illuminate your path</p>
-  <input placeholder="Username">
+  <body>
+<div class="login-container">
+  <div class="lamp"></div>
+  <h2>Welcome Back</h2>
+  <input type="text" placeholder="Username">
   <input type="password" placeholder="Password">
   <button>Login</button>
 </div>
-
-</body>
+  </body>
 </html>
